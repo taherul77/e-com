@@ -5,6 +5,7 @@ const Homepage3 = () => {
   return (
    <>
    <Banner></Banner>
+   <Banner></Banner>
    </>
   )
 }
