@@ -1,8 +1,9 @@
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { NavTopProps } from "@/types";
+
 import React, { useState } from "react";
 
-const NavTop = ({ onTabSelect }: NavTopProps) => {
+const NavTop = ({ onTabSelect }: NavTopProps ) => {
   const [activeTab, setActiveTab] = useState<string>("EIIA");
 
   const handleTabChange = (value: string) => {
