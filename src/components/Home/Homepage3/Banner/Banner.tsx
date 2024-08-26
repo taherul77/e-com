@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const Banner = () => {
-  const image1 = "/assets/home/banner-1.webp";
+  const image1 = "/assets/home/Home-1.webp";
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
@@ -21,19 +21,22 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      {/* Center Image with Zoom Effect */}
+    <div className="relative flex items-center justify-start h-screen overflow-hidden">
+      {/* Background Image with Zoom Effect */}
       <div
-        className="w-full h-full flex flex-col items-center justify-center p-8 transition-transform duration-500 ease-in-out"
+        className="absolute inset-0 w-full h-full transition-transform duration-500 ease-in-out"
         style={{
           backgroundImage: `url(${image1})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
           transform: `scale(${scale})`, // Smooth zoom effect on scroll
         }}
-      >
+      />
+
+      {/* Fixed Content */}
+      <div className="relative z-10 flex flex-col items-start justify-center p-8 pl-20">
         <p className="text-sm uppercase font-bold text-white mb-2">
-          Set Your Style
+          Mid-Season Sale
         </p>
         <h1 className="text-5xl font-bold text-white mb-4">INSTILEY</h1>
         <p className="text-center text-white mb-6">
