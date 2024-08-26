@@ -23,47 +23,57 @@ const HomeNavigation = () => {
     };
   
     return (
-      <div className="py-16   ">
-        <div className="flex justify-center gap-32 pb-10">
+      <div className="py-10   ">
+        <div className="flex justify-center gap-10 pb-5">
           <button
-            className={`font-light px-3 py-3  ${
+            className={`font-light  py-3 rounded-2xl px-4  ${
               activeComponent === "MyKitchen"
                 ? " bg-black text-white"
                 : "hover:bg-slate-300"
             }`}
             onClick={() => setActiveComponent("MyKitchen")}
           >
-            Men
+            Shop All
           </button>
           <button
-            className={`font-light px-3 py-3  ${
+            className={`font-light  py-3 rounded-2xl px-4 ${
               activeComponent === "Finish"
                 ? " bg-black text-white"
                 : "hover:bg-slate-300"
             }`}
             onClick={() => setActiveComponent("Finish")}
           >
-            Women
+            Activewears
           </button>
           <button
-            className={`font-light px-3 py-3  ${
+            className={`font-light  py-3 rounded-2xl px-4 ${
               activeComponent === "Services"
                 ? " bg-black text-white"
                 : "hover:bg-slate-300"
             }`}
             onClick={() => setActiveComponent("Services")}
           >
-            Services
+            Sweatshirts
           </button>
           <button
-            className={`font-light px-3 py-3  ${
+            className={`font-light  py-3 rounded-2xl  px-4  ${
               activeComponent === "EcoFriendly"
                 ? " bg-black text-white"
                 : "hover:bg-slate-300"
             }`}
             onClick={() => setActiveComponent("EcoFriendly")}
           >
-            Children
+            Costs & Jackets
+          </button>
+          <button
+            className={`font-light  py-3 rounded-2xl  px-4  ${
+              activeComponent === "EcoFriendly"
+                ? " bg-black text-white"
+                : "hover:bg-slate-300"
+            }`}
+            onClick={() => setActiveComponent("EcoFriendly")}
+          >
+            Jeans
           </button>
         </div>
         <div className="flex justify-center">{renderComponent()}</div>
