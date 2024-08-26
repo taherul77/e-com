@@ -1,32 +1,35 @@
-"use cli"
 import React, { useEffect, useState } from "react";
 
 const Banner = () => {
   const image1 = "/assets/home/banner-1.webp";
-  const [backgroundSize, setBackgroundSize] = useState("100%");
+  const [scale, setScale] = useState(1);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Calculate zoom level based on scroll position
       const scrollPosition = window.scrollY;
-      const newSize = 100 + scrollPosition * 0.1; // Adjust the 0.1 to control zoom intensity
-      setBackgroundSize(`${newSize}%`);
+      const newScale = 1 + scrollPosition / 1000; // Adjust zoom rate
+      if (newScale <= 1.1) {
+        setScale(newScale); // Limit zoom to 110%
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <div className="flex items-center justify-center h-screen">
       {/* Center Image with Zoom Effect */}
       <div
-        className="w-full h-full flex flex-col items-center justify-center p-8"
+        className="w-full h-full flex flex-col items-center justify-center p-8 transition-transform duration-500 ease-in-out"
         style={{
           backgroundImage: `url(${image1})`,
-          backgroundSize: backgroundSize,
           backgroundPosition: "center",
-          transition: "background-size 0.3s ease-out", // Smooth transition
+          backgroundSize: "cover",
+          transform: `scale(${scale})`, // Smooth zoom effect on scroll
         }}
       >
         <p className="text-sm uppercase font-bold text-white mb-2">
